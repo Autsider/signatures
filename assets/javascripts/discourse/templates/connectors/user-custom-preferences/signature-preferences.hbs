@@ -1,13 +1,5 @@
 {{#if siteSettings.signatures_enabled}}
-  <!--div class="control-group signatures">
-    <label class="control-label">Enable Signatures</label>
-    <div class="controls">
-      <label class='checkbox-label'>
-        {{input type="checkbox" checked=model.custom_fields.see_signatures}}
-          See user signatures below posts
-      </label>
-    </div>
-  </div-->
+
   {{#if user.trust_level}}
     <div class="control-group">
       {{user.trust_level}}
