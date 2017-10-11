@@ -1,5 +1,5 @@
 {{#if siteSettings.signatures_enabled}}
-  <div class="control-group signatures">
+  <!--div class="control-group signatures">
     <label class="control-label">Enable Signatures</label>
     <div class="controls">
       <label class='checkbox-label'>
@@ -7,7 +7,13 @@
           See user signatures below posts
       </label>
     </div>
-  </div>
+  </div-->
+  {{#if user.trust_level}}
+    <div class="control-group">
+      {{user.trust_level}}
+      {{user}}
+    </div
+  {{/if}} 
   <div class="control-group signatures">
     <label class="control-label">My Signature</label>
     <div class="controls">
