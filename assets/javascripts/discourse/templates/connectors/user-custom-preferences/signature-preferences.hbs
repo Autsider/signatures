@@ -1,25 +1,16 @@
-{{#if siteSettings.signatures_enabled}}
-  <div>{{model}}</div>
-  <div>{{model.trust_level}}</div>
-  {{#if model.trust_level}}
-     <div class="control-group signatures">
-        <label class="control-label">My Signature</label>
-        <div class="controls">
-          {{user.trust_level}}
-          {{user}}
-        </div>
+{{#if model.trust_level > 3}}
+  {{#if siteSettings.signatures_enabled}}
+    <div class="control-group signatures">
+      <label class="control-label">My Signature</label>
+      <div class="controls">
+        {{#if siteSettings.signatures_advanced_mode}}
+          {{d-editor value=model.custom_fields.signature_raw showUploadModal="showUploadModal"}}
+        {{else}}
+          <label class='text-label'>
+            {{input type="text" class="input-xxlarge" value=model.custom_fields.signature_url}}
+          </label>
+        {{/if}}
       </div>
-  {{/if}} 
-  <div class="control-group signatures">
-    <label class="control-label">My Signature</label>
-    <div class="controls">
-      {{#if siteSettings.signatures_advanced_mode}}
-        {{d-editor value=model.custom_fields.signature_raw showUploadModal="showUploadModal"}}
-      {{else}}
-        <label class='text-label'>
-          {{input type="text" class="input-xxlarge" value=model.custom_fields.signature_url}}
-        </label>
-      {{/if}}
     </div>
-  </div>
+  {{/if}}
 {{/if}}
