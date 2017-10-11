@@ -1,12 +1,6 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
 import RawHtml from 'discourse/widgets/raw-html';
 
-Handlebars.registerHelper('if_gt', function(a, b, opts) {
-    if(a > b) // Or === depending on your needs
-        return opts.fn(this);
-    else
-        return opts.inverse(this);
-});
 
 function attachSignature(api, siteSettings) {
   api.includePostAttributes('user_signature');
@@ -34,8 +28,12 @@ export default {
   name: 'extend-for-signatures',
   initialize(container) {
     const siteSettings = container.lookup('site-settings:main');
+    const user = container.lookup('current-user:main');
     if (siteSettings.signatures_enabled) {
       withPluginApi('0.1', api => attachSignature(api, siteSettings));
+    }
+    if (user.trust_level > 3){
+      user.set("isSignatureEditAllowed", true)
     }
   }
 };

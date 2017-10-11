@@ -1,4 +1,4 @@
-{{#if_gt model.trust_level 3}}
+{{#if model.isSignatureEditAllowed}}
   {{#if siteSettings.signatures_enabled}}
     <div class="control-group signatures">
       <label class="control-label">My Signature</label>
@@ -13,4 +13,4 @@
       </div>
     </div>
   {{/if}}
-{{/if_gt}}
+{{/if}}
