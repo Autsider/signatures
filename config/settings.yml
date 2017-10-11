@@ -3,5 +3,5 @@ plugins:
     default: true
     client: true
   signatures_advanced_mode:
-    default: false
+    default: true
     client: true
