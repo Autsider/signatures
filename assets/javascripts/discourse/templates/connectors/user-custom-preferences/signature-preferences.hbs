@@ -1,5 +1,7 @@
 {{#if siteSettings.signatures_enabled}}
-  {{#if user.trust_level}}
+  <div>{{model}}</div>
+  <div>{{model.trust_level}}</div>
+  {{#if model.trust_level}}
      <div class="control-group signatures">
         <label class="control-label">My Signature</label>
         <div class="controls">
