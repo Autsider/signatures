@@ -32,8 +32,8 @@ export default {
     if (siteSettings.signatures_enabled) {
       withPluginApi('0.1', api => attachSignature(api, siteSettings));
     }
-    if (user.trust_level > 3){
-      user.set("isSignatureEditAllowed", true)
+    if ((user) && (user.trust_level) && (user.trust_level > 3))
+        user.set("isSignatureEditAllowed", true);
     }
   }
 };
